@@ -9,7 +9,7 @@ mongoose.connect('mongodb://localhost:27017/SuperAdmin', {useNewUrlParser: true,
     console.log('connected to db')
 }).catch((error) => {
     console.log(error)
-})
+});
 
 const DataAddSchema = mongoose.Schema({
     CovrageType: {
