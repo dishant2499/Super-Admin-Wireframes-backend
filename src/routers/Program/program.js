@@ -1,6 +1,6 @@
 const express = require('express');
 const router = new express.Router();
-const DataList = require('../models/programs');
+const DataList = require('../../models/Program/programs');
 
 router.post('/program',async (req,res)=>{
     try {
@@ -27,5 +27,23 @@ router.get('/programDataList',async (req,res)=>{
     const data = await DataList.find()
     res.send(data)
 });
+
+router.put('/program/updatedata/:id',async (req,res)=>{
+    console.log(req.params.id)
+    try {
+        const data = await DataList.updateOne({_id : req.params.id},{$set:{
+                ...req.body
+            }})
+        res.send(data)
+    }catch (e) {
+        console.log(e)
+    }
+
+})
+
+router.delete('/program/deletedata/:id',async (req,res)=>{
+    const data = await DataList.deleteOne({_id : req.params.id})
+    res.send(data)
+})
 
 module.exports = router;
