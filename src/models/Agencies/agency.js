@@ -7,19 +7,15 @@ const AgencySchema = mongoose.Schema({
     },
     phone: {
         type: Number,
-        required: true
     },
     email: {
         type: String,
-        required: true
     },
     contact_person: {
         type: String,
-        required: true
     },
     contact_person_role: {
         type: String,
-        required: true
     },
     address: {
         type: String,
@@ -27,16 +23,17 @@ const AgencySchema = mongoose.Schema({
     },
     city: {
         type: String,
-        required: true
     },
     state: {
         type: String,
-        required: true
     },
-    Status: {
+    status: {
         type: String,
         required: true
     },
+    createdate:{
+        type: Date
+    }
 });
 
 const AgencyList = mongoose.model('AgencyLists', AgencySchema);
